@@ -1,0 +1,14 @@
+{
+	"name": "markdown-test",
+	"version": "1.0.0",
+	"description": "markdown解析",
+	"main": "index.js",
+	"author": "liuming",
+	"license": "MIT",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"dependencies": {
+		"marked": "^0.3.19"
+	}
+}
