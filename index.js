@@ -12,7 +12,7 @@ renderer.listitem = function ( body ) {
 	} else {
 		content = body;
 		title = body;
-		return `<li><a href="#${title}" ><i class="fa fa-angle-right"></i>${content}</a></li>`
+		return `<li><a href="#${title}" >${content}</a></li>`
 	}
 }
 renderer.list = function ( body, isorder ) {
@@ -75,15 +75,17 @@ function fillBody( list = '', content = '' ) {
   {% block content%}
   {% load i18n %}
   <style>
+    ol{list-style-type:decimal}
+    ul{list-style-type:disc}
     aside.sidebar li{list-style:none}
     table th,table td{padding:0 5px;border:1px solid black;}
-    table,ul,ol{margin-bottom:20px}
+    table,ul,ol{margin-bottom:20px;padding-left:24px;}
     #category-widget > li > a {
       color: #666;
       font-size: 16px;
       position: relative;
       border-top: 1px solid #eaeaea;
-      padding: 6px 10px 6px 43px;
+      padding: 6px 10px 6px 48px;
       text-transform: uppercase;
       font-weight: bold;
     }
@@ -92,7 +94,7 @@ function fillBody( list = '', content = '' ) {
     }
     #category-widget li li a {
       color: #7e7e7e;
-      padding: 2px 10px 2px 48px;
+      padding: 2px 10px 2px 36px;
       font-weight:normal;
     }
     #category-widget a {
@@ -100,6 +102,10 @@ function fillBody( list = '', content = '' ) {
       font: 600 12px/24px 'Open Sans', Verdana;
       text-transform: uppercase;
     }
+    #category-widget ul,#category-widget ol{
+      padding:0;
+      margin:0;
+    } 
   </style>
   <div class="o-head-bottom"></div><!-- space -->
   <div class="mb50"></div>
