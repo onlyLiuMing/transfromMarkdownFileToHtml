@@ -30,7 +30,8 @@ parse_content.heading = function ( body, level ) {
 
 // 生成对应html结构
 const content = marked( fs.readFileSync( './markdown/content.md' ).toString(), {
-	renderer: parse_content
+	renderer: parse_content,
+	breaks: true
 } );
 const list = marked( fs.readFileSync( './markdown/list.md' ).toString(), {
 	renderer: renderer
@@ -75,6 +76,8 @@ function fillBody( list = '', content = '' ) {
   {% load i18n %}
   <style>
     aside.sidebar li{list-style:none}
+    table th,table td{padding:0 5px;border:1px solid black;}
+    table,ul,ol{margin-bottom:20px}
     #category-widget > li > a {
       color: #666;
       font-size: 16px;
