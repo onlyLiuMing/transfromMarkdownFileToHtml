@@ -102,6 +102,15 @@ function fillBody( list = '', content = '' ) {
       font: 600 12px/24px 'Open Sans', Verdana;
       text-transform: uppercase;
     }
+    #category-widget a.actived{
+      color:#009688;
+    }
+    #category-widget .open .category-widget-btn{
+      background:#505050;
+    }
+    #category-widget .open .category-widget-btn:hover{
+      background:#009688;
+    }
     #category-widget ul,#category-widget ol{
       padding:0;
       margin:0;
@@ -134,6 +143,19 @@ function fillBody( list = '', content = '' ) {
       }
       e.preventDefault();
     });
+    $('#category-widget').on('click',"a,:not(span)",function(e){
+      // 跳转到指定高度
+      var targetDomTop = $($(this).attr('href')).offset().top;
+      var screenHeight = window.innerHeight;
+      window.scrollTo(0,targetDomTop -(screenHeight/5));
+      // 修改颜色
+      $('#category-widget a').removeClass('actived');
+      $(this).addClass('actived');
+      return false;
+    })
+    $('#category-widget').on('click',"span",function(e){
+      return false;
+    })
   </script>
   {%endblock%}`;
 	return result;
